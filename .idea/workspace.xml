@@ -24,14 +24,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b88c749-b734-4dff-bf39-44de20588ae3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210326201653.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/InspectionOrder.php" afterDir="false" />
+    <list default="true" id="0b88c749-b734-4dff-bf39-44de20588ae3" name="Default Changelist" comment="Creation of database structure.">
+      <change afterPath="$PROJECT_DIR$/src/Controller/InspectionOrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/Type/InspectionOrderType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/crls.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/crls.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,6 +119,22 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpdoc-parser" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
     </include_path>
   </component>
   <component name="ProjectId" id="1qDPAvT18LNA7ogBYRRlvQ9CptX" />
@@ -141,8 +160,18 @@
       <workItem from="1616611050869" duration="355000" />
       <workItem from="1616781493387" duration="614000" />
       <workItem from="1616787786426" duration="2698000" />
-      <workItem from="1616793092457" duration="280000" />
+      <workItem from="1616793092457" duration="353000" />
+      <workItem from="1616793461138" duration="23000" />
+      <workItem from="1616793495983" duration="3008000" />
     </task>
+    <task id="LOCAL-00001" summary="Creation of database structure.">
+      <created>1616793417039</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616793417039</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,24 +187,33 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creation of database structure." />
+    <option name="LAST_COMMIT_MESSAGE" value="Creation of database structure." />
   </component>
   <component name="WindowStateProjectService">
     <state x="591" y="197" width="800" height="719" key="#Plugins" timestamp="1616793322352">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="591" y="197" width="800" height="719" key="#Plugins/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1616793322352" />
+    <state x="695" y="113" width="582" height="895" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1616793756349">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="695" y="113" width="582" height="895" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1616793756349" />
     <state x="411" y="53" width="912" height="911" key="CommitChangelistDialog2" timestamp="1616793296688">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="411" y="53" width="912" height="911" key="CommitChangelistDialog2/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1616793296688" />
-    <state x="750" y="273" width="481" height="568" key="NewPhpClassDialog" timestamp="1616787848593">
+    <state x="750" y="273" width="481" height="568" key="NewPhpClassDialog" timestamp="1616794605893">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="750" y="273" width="481" height="568" key="NewPhpClassDialog/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1616787848593" />
-    <state x="485" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1616793076469">
+    <state x="750" y="273" width="481" height="568" key="NewPhpClassDialog/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1616794605893" />
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1616793481847">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
-    <state x="485" y="188" width="1022" height="737" key="SettingsEditor/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1616793076469" />
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor/72.27.1848.1053/1920.0.1920.1080@72.27.1848.1053" timestamp="1616793481847" />
     <state x="659" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1616793304215">
       <screen x="72" y="27" width="1848" height="1053" />
     </state>
