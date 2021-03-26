@@ -1,0 +1,30 @@
+Zadanie rekrutacyjne:
+
+Należy stworzyć aplikację WWW, która służy do importu i pobierania listy zleceń. Komunikacja z aplikacją ma odbywać się za pomocą API.
+
+Wymagania:
+
+1. Aplikacja ma pozwalać na utworzenie nowego zlecenia inspekcji na podstawie otrzymanych danych w formacie JSON:
+{
+"id": int, // ID zlecenia
+"assignee": string // UUID osoby odpowiedzialnej
+"author": string // UUID autora
+"realEstates": [
+  {
+    "type": string, // typ nieruchomości
+	"description": string // opis nieruchomości
+  },
+  ...
+], // lista nieruchomości
+"inspectionDate": string // data inspekcji YYYY-MM-DD
+}
+
+Przykładowe dane zleceń, które mogą się pojawić na wejściu znajdują się w załączonym pliku 'tasks.txt'.
+Nowe zlecenia nie mogą nadpisywać zleceń już istniejących w systemie. Należy zwrócić uwagę na poprawność zapisywanych danych.
+
+2. Aplikacja ma pozwalać na pobranie listy zaimportowanych zleceń za pomocą API. Format danych powinien być w postaci JSON.
+
+Aplikacja powinna wykorzystywać framework Symfony 4/5, mieć czytelną strukturę. Opcjonalnie przedstawione rozwiązanie powinno opierać się
+na testach. W kodzie proszę w miarę możliwości zastosować znane techniki "dobrych praktyk" oraz wykorzystać wzorce projektowe.
+Odpowiedź proszę udostępnić w formie linku do repozytorium git (np. GitHub). Historię zmian proszę wykonać tak, aby odzwierciedlała etapy budowy aplikacji.
+Jeżeli w trakcie wykonywania zadania pojawią się pytania, wątpliwości lub będzie potrzebne więcej czasu, prosimy o kontakt.
