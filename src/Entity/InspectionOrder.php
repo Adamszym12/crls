@@ -19,31 +19,25 @@ class InspectionOrder
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="json")
-     */
-    private $data = [];
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $created_at;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $assignee;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $author;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getData(): ?array
-    {
-        return $this->data;
-    }
-
-    public function setData(array $data): self
-    {
-        $this->data = $data;
-
-        return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
@@ -67,5 +61,29 @@ class InspectionOrder
         if ($this->getCreatedAt() === null) {
             $this->setCreatedAt(new \DateTime('now'));
         }
+    }
+
+    public function getAssignee(): ?string
+    {
+        return $this->assignee;
+    }
+
+    public function setAssignee(string $assignee): self
+    {
+        $this->assignee = $assignee;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?string
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(string $author): self
+    {
+        $this->author = $author;
+
+        return $this;
     }
 }

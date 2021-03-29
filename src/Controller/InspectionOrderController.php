@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class HomeController
  * @package App\Controller
- * @Route("/api/inspection-order")
+ * @Route("/api/inspection-order", name="api.")
  */
 class InspectionOrderController extends AbstractFOSRestController
 {
@@ -23,33 +23,31 @@ class InspectionOrderController extends AbstractFOSRestController
      */
     public function index()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $inspectionOrder = new InspectionOrder();
-        $inspectionOrder->setData(array("dupa" => "kupa"));
-
-        $em->persist($inspectionOrder);
-        $em->flush();
-
-        dd();
+        $repository = $this->getDoctrine()->getRepository(InspectionOrder::class);
+        $inspectionOrders = $repository->findall();
+        return $this->handleView($this->view($inspectionOrders));
     }
 
     /**
      * @Route("/", name="store", methods={"POST"})
      * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
         $inspectionOrder = new InspectionOrder();
+
         $form = $this->createForm(InspectionOrderType::class, $inspectionOrder);
         $data = json_decode($request->getContent(), true);
         $form->submit($data);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($inspectionOrder);
             $em->flush();
             return $this->handleView($this->view(['status' => 'ok'], Response::HTTP_CREATED));
         }
+
         return $this->handleView($this->view($form->getErrors()));
     }
 }
