@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210329172106 extends AbstractMigration
+final class Version20210330181843 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,15 +20,13 @@ final class Version20210329172106 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SEQUENCE inspection_order_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE inspection_order (id INT NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, assignee VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE inspection_order (id INT NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, assignee VARCHAR(255) NOT NULL, author VARCHAR(255) NOT NULL, real_estates JSON NOT NULL, inspection_date VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id))');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP SEQUENCE inspection_order_id_seq CASCADE');
         $this->addSql('DROP TABLE inspection_order');
     }
 }

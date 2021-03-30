@@ -14,11 +14,9 @@ class InspectionOrder
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
     private $id;
-
 
     /**
      * @ORM\Column(type="datetime")
@@ -35,9 +33,26 @@ class InspectionOrder
      */
     private $author;
 
+    /**
+     * @ORM\Column(type="json")
+     */
+    private $realEstates = [];
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $inspectionDate;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
@@ -83,6 +98,30 @@ class InspectionOrder
     public function setAuthor(string $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getRealEstates(): ?array
+    {
+        return $this->realEstates;
+    }
+
+    public function setRealEstates(array $realEstates): self
+    {
+        $this->realEstates = $realEstates;
+
+        return $this;
+    }
+
+    public function getInspectionDate(): ?string
+    {
+        return $this->inspectionDate;
+    }
+
+    public function setInspectionDate(?string $inspectionDate): self
+    {
+        $this->inspectionDate = $inspectionDate;
 
         return $this;
     }
